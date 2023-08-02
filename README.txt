@@ -1,3 +1,11 @@
+Online-store
+
+Stack:
+- PostgreSQL
+- React.js
+- Node.js
+- express
+
 Creating and set up PostgreSQL database in docker:
 
 1) docker run --name store-postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres
