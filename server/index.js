@@ -7,6 +7,7 @@ const cors = require('cors')
 const fileUpload = require('express-fileupload')
 const router = require('./routes/index')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
+const path = require('path')
 
 const app = express()
 // For sending requests from client
@@ -15,6 +16,8 @@ app.use(cors())
 app.use(express.json())
 // For uploading files
 app.use(fileUpload({}))
+// For getting files from "static" directory
+app.use(express.static(path.resolve(__dirname, 'static')))
 app.use('/api', router)
 
 //Handling errors, must be last Middleware!
