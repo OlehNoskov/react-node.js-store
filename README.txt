@@ -6,6 +6,9 @@ Stack:
 - Node.js
 - express
 
+For uploading files in application, inside folder "server" execute this command:
+npm i express-fileupload
+
 Creating and set up PostgreSQL database in docker:
 
 1) docker run --name store-postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres
