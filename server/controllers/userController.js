@@ -39,12 +39,9 @@ class UserController {
         return res.json({token})
     }
 
-    async check(req, res, next) {
-        const {id} = req.query
-        if (!id) {
-            return next(ApiError.badRequest('Id hasn\'t been provided!'))
-        }
-        res.json(id);
+    async check(req, res) {
+        const token = generateJWT(req.user.id, req.user.email, req.user.role)
+        return res.json({token})
     }
 
     async getAll(req, res) {
