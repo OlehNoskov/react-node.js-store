@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Admin from "../pages/Admin";
 import Shop from "../pages/Shop";
@@ -13,18 +13,19 @@ import {
 import Basket from "../pages/Basket";
 import Auth from "../pages/Auth";
 import DevicePage from "../pages/DevicePage";
+import {Context} from "../index";
 
 const AppRouter = () => {
-    const isAuth = false;
+    const {user} = useContext(Context);
+
     return (
         <div>
-            {isAuth &&
+            {user.isAuth ?
                 <Routes>
                     <Route path={ADMIN_ROUTE} element={<Admin/>}/>
                     <Route path={BASKET_ROUTE} element={<Basket/>}/>
                 </Routes>
-            }
-            {!isAuth &&
+                :
                 <Routes>
                     <Route path={SHOP_ROUTE} element={<Shop/>}/>
                     <Route path={LOGIN_ROUTE} element={<Auth/>}/>
