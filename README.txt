@@ -12,6 +12,9 @@ npm i express-fileupload
 For generating unique file name inside folder "server" execute this command:
 npm i uuid
 
+For generating JWT inside folder "server" execute this command:
+npm i jsonwebtoken bcrypt
+
 Creating and set up PostgreSQL database in docker:
 
 1) docker run --name store-postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres
@@ -23,3 +26,5 @@ Creating and set up PostgreSQL database in docker:
 4) CREATE DATABASE online_store;
 
 5) \l - check existing database
+
+npm run dev - command for starting project
