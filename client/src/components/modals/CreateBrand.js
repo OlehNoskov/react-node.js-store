@@ -13,7 +13,7 @@ const CreateBrand = ({show, onHide}) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-danger">Close</Button>
+                <Button variant="outline-danger" onClick={onHide}>Close</Button>
                 <Button variant="outline-success">Add</Button>
             </Modal.Footer>
         </Modal>

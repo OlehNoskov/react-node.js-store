@@ -23,6 +23,9 @@ npm install react-bootstrap bootstrap
 Launching frontend:
 npm start
 
+Launching backend:
+npm run dev
+
 Creating and set up PostgreSQL database in docker:
 
 1) docker run --name store-postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres
@@ -35,4 +38,3 @@ Creating and set up PostgreSQL database in docker:
 
 5) \l - check existing database
 
-npm run dev - command for starting project
