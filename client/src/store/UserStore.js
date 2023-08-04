@@ -3,7 +3,7 @@ import {makeAutoObservable} from "mobx";
 export default class UserStore {
     constructor() {
         //This variable with underscore because it's agreement and this variable do not change
-        this._auth = true
+        this._auth = false
         this._user = {}
         //Overview for this variables
         makeAutoObservable(this)

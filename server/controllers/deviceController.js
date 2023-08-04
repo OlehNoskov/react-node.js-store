@@ -11,7 +11,7 @@ class DeviceController {
             const {img} = req.files
 
             //Generates unique file name
-            let fileName = uuid.v4() + ".jpeg"
+            let fileName = uuid.v4() + ".jpg"
 
             //Moving uploaded files to "static" directory inside project
             img.mv(path.resolve(__dirname, '..', 'static', fileName))

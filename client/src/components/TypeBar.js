@@ -5,6 +5,7 @@ import {ListGroup} from "react-bootstrap";
 
 const TypeBar = observer(() => {
     const {device} = useContext(Context)
+
     return (
         <div>
             <ListGroup>

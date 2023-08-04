@@ -46,12 +46,10 @@ const DeviceInfo = sequelize.define('device_info', {
     description: {type: DataTypes.STRING, allowNull: false}
 })
 
-
 //Additional table for binding 2 tables: Type and Brand, because they have ManyToMany connection
 const TypeBrand = sequelize.define('type_brand', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
 })
-
 
 //Description how these entities bind with each others
 User.hasOne(Basket)
@@ -80,7 +78,6 @@ DeviceInfo.belongsTo(Device)
 
 Type.belongsToMany(Brand, {through: TypeBrand})
 Brand.belongsToMany(Type, {through: TypeBrand})
-
 
 //Export these entities for working in other files.
 module.exports = {

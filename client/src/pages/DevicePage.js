@@ -1,32 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import bigStar from '../assets/bigStar.png'
+import {useParams} from 'react-router-dom'
+import {fetchOneDevice} from "../http/deviceAPI";
 
 const DevicePage = () => {
-    const device = {
-        id: 1,
-        name: "15 pro",
-        price: 60000,
-        rating: 0,
-        img: "https://www.zdnet.com/a/img/resize/f792d73c3e241b8f40a52875616f490ea1a08e97/" +
-            "2023/04/24/4e586f53-afa2-452d-baf4-cc7c78c2c5fb/samsung-galaxy-a54-5g.jpg?" +
-            "auto=webp&fit=crop&height=1200&width=1200"
-    }
+    const [device, setDevice] = useState({info: []})
+    const {id} = useParams()
 
-    const description = [
-        {id: 1, title: 'Memory', description: '128 gb'},
-        {id: 2, title: 'Memory', description: '256 gb'},
-        {id: 3, title: 'Memory', description: '128 gb'},
-        {id: 4, title: 'Memory', description: '64 gb'},
-        {id: 5, title: 'Memory', description: '512 gb'},
-        {id: 6, title: 'Memory', description: '1024 gb'},
-    ]
+    useEffect(() => {
+        fetchOneDevice(id).then(data => setDevice(data))
+    }, []);
+
     return (
         <div>
             <Container className={'mt-2'}>
                 <Row>
                     <Col md={4}>
-                        <Image width={300} height={300} src={device.img}/>
+                        <Image width={300} height={300} src={process.env.REACT_APP_API_URL + device.img}/>
                     </Col>
                     <Col md={4}>
                         <Row className={'d-flex flex-column align-items-center'}>
@@ -59,9 +50,12 @@ const DevicePage = () => {
                 </Row>
                 <Row className={'d-flex align-items-center justify-content-center mt-2'}>
                     <h1>Characteristics</h1>
-                    {description.map((info, index) =>
+                    {device.info.map((info, index) =>
                         <Row key={info.id}
-                             style={{background: index % 2 === 0 ? 'lightgray' : 'transparent', padding:10}} >
+                             style={{
+                                 background: index % 2 === 0 ? 'lightgray' : 'transparent',
+                                 padding: 10
+                             }}>
                             {info.title}: {info.description}
                         </Row>
                     )}

@@ -19,6 +19,7 @@ For creating react application inside folder "client" execute this command:
 npx create-react-app .
 npm i axios react-router-dom mobx mobx-react-lite
 npm install react-bootstrap bootstrap
+npm i jwt-decode
 
 Launching frontend:
 npm start
